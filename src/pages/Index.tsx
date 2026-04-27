@@ -748,7 +748,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-3 gap-6">
             {[
               { icon: "Phone", title: "Телефон", val: "+7 (987) 477-53-49", sub: "Пн–Вс с 9:00 до 20:00" },
-              { icon: "Mail", title: "Email", val: "info@baltic-horizons.ru", sub: "Ответим в течение часа" },
+              { icon: "Mail", title: "Email", val: "TurKaliningrad@gmail.com", sub: "Ответим в течение часа" },
               { icon: "MapPin", title: "Адрес", val: "Калининград, пр. Мира 1", sub: "Офис у центрального рынка" },
             ].map((c) => (
               <div key={c.title} className="rounded-2xl p-7 text-center card-hover"
