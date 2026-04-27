@@ -764,7 +764,38 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="mt-8 rounded-2xl p-6 flex items-center justify-between flex-wrap gap-4"
+          {/* Скидки */}
+          <div className="mt-8 rounded-2xl p-6"
+            style={{ backgroundColor: "var(--beige-dark)", border: "1px solid var(--sand)" }}>
+            <div className="flex items-center gap-2 mb-5">
+              <Icon name="Tag" size={20} style={{ color: "var(--terracotta)" }} />
+              <div className="font-cormorant text-xl font-semibold">Скидки</div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { icon: "GraduationCap", label: "Студентам", desc: "при предъявлении студенческого", discount: "−15%" },
+                { icon: "Heart", label: "Пенсионерам", desc: "при предъявлении пенсионного", discount: "−30%" },
+                { icon: "Baby", label: "Детям до 3 лет", desc: "в сопровождении взрослого", discount: "−10%" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-4 rounded-xl p-4"
+                  style={{ backgroundColor: "var(--cream)", border: "1px solid var(--sand)" }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "var(--beige-dark)" }}>
+                    <Icon name={item.icon} size={22} style={{ color: "var(--terracotta)" }} />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-golos font-medium text-sm">{item.label}</div>
+                    <div className="text-xs font-golos mt-0.5" style={{ opacity: 0.6 }}>{item.desc}</div>
+                  </div>
+                  <div className="font-cormorant text-2xl font-semibold" style={{ color: "var(--terracotta)" }}>
+                    {item.discount}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 rounded-2xl p-6 flex items-center justify-between flex-wrap gap-4"
             style={{ backgroundColor: "var(--beige-dark)", border: "1px solid var(--sand)" }}>
             <div>
               <div className="font-cormorant text-xl font-semibold">Мы в соцсетях</div>
