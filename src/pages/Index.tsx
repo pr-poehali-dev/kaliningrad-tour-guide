@@ -5,6 +5,22 @@ const IMG_KALININGRAD = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b66
 const IMG_ZELENOGRADSK = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/b5884ead-a3eb-4e45-a7e5-5a8b07994d38.jpg";
 const IMG_SVETLOGORSK = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/2d12ea5e-3e2c-4256-a602-015a82d300ac.jpg";
 
+// Экскурсии — уникальные фото
+const IMG_TOUR_KANT = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/6f77b0bd-9f3a-4bec-a8ba-619e8119ec4a.jpg";
+const IMG_TOUR_COAST = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/cb6c844d-ea6d-4b23-939a-7d8ff749f2de.jpg";
+const IMG_TOUR_AMBER = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/3ba6417f-6987-45ee-ab1b-4cb0744c28b5.jpg";
+const IMG_TOUR_CASTLE = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/9c0e996d-2e93-4ed1-970d-9f3da417ae82.jpg";
+const IMG_TOUR_RING = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/1e95547f-e810-4f5b-9a96-95e343fd6835.jpg";
+const IMG_TOUR_NIGHT = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/9516c60e-a443-4e46-813a-df5d02fae560.jpg";
+
+// Галерея — уникальные фото
+const IMG_GAL_SVETLOGORSK = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/4dabf3b1-354f-4b11-a1b9-2fef576e0b49.jpg";
+const IMG_GAL_FOREST = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/31441046-c2d6-42e7-841c-78222e9024de.jpg";
+const IMG_GAL_SUNSET = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/999ffdd0-affb-4bb1-9131-d6a59c4676bd.jpg";
+const IMG_GAL_RYBNAYA = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/bcc8f98d-28d5-4f0d-aa8f-b0c4b31f6b7b.jpg";
+const IMG_GAL_LIGHTHOUSE = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/1939699a-e8bc-4a08-bc47-90ef08611441.jpg";
+const IMG_GAL_AMBER = "https://cdn.poehali.dev/projects/c6707341-e8e3-41d3-b663-2e13696554ed/files/c2dc692d-234a-4856-bf32-002aa0ed4a8a.jpg";
+
 const sections = ["Главная", "Экскурсии", "Маршруты", "Отзывы", "Блог", "Галерея", "Бронирование", "Контакты"];
 
 const tours = [
@@ -18,7 +34,7 @@ const tours = [
     description: "Остров Канта, Рыбная деревня, Рыбный рынок, Бранденбургские ворота — живая история Пруссии в каждом шаге",
     icon: "Footprints",
     tag: "Хит",
-    img: IMG_KALININGRAD,
+    img: IMG_TOUR_KANT,
   },
   {
     id: 2,
@@ -30,7 +46,7 @@ const tours = [
     description: "Куршская коса, янтарный пляж, старинный курорт со свежим морским воздухом и вековыми соснами",
     icon: "Car",
     tag: "Популярное",
-    img: IMG_ZELENOGRADSK,
+    img: IMG_TOUR_COAST,
   },
   {
     id: 3,
@@ -42,7 +58,7 @@ const tours = [
     description: "Крупнейшее в мире месторождение янтаря, обзорная площадка над карьером, мастер-класс по поделкам",
     icon: "Gem",
     tag: "Уникальное",
-    img: IMG_SVETLOGORSK,
+    img: IMG_TOUR_AMBER,
   },
   {
     id: 4,
@@ -54,7 +70,7 @@ const tours = [
     description: "Замок Инстербург, руины тевтонских укреплений, лютеранские кирхи — настоящий средневековый детектив",
     icon: "Castle",
     tag: "Для историков",
-    img: IMG_KALININGRAD,
+    img: IMG_TOUR_CASTLE,
   },
   {
     id: 5,
@@ -66,7 +82,7 @@ const tours = [
     description: "Полное погружение: четыре города за один день с гидом, обед в местном ресторане и янтарный сувенир в подарок",
     icon: "MapPin",
     tag: "Премиум",
-    img: IMG_ZELENOGRADSK,
+    img: IMG_TOUR_RING,
   },
   {
     id: 6,
@@ -78,7 +94,7 @@ const tours = [
     description: "Иллюминированные ворота, подсвеченный собор на острове Канта, легенды прусских ночей — вирусный формат для Instagram",
     icon: "Moon",
     tag: "Вирусное",
-    img: IMG_KALININGRAD,
+    img: IMG_TOUR_NIGHT,
   },
 ];
 
@@ -178,12 +194,12 @@ const blogPosts = [
 ];
 
 const galleryImages = [
-  { src: IMG_KALININGRAD, caption: "Кафедральный собор на острове Канта" },
-  { src: IMG_ZELENOGRADSK, caption: "Набережная Зеленоградска" },
-  { src: IMG_SVETLOGORSK, caption: "Светлогорск — спуск к морю" },
-  { src: IMG_KALININGRAD, caption: "Рыбная деревня на закате" },
-  { src: IMG_ZELENOGRADSK, caption: "Балтийский янтарный берег" },
-  { src: IMG_SVETLOGORSK, caption: "Куршская коса — танцующий лес" },
+  { src: IMG_GAL_RYBNAYA, caption: "Рыбная деревня — прусская архитектура у воды" },
+  { src: IMG_GAL_FOREST, caption: "Танцующий лес Куршской косы" },
+  { src: IMG_GAL_SUNSET, caption: "Балтийский закат — пустые пляжи" },
+  { src: IMG_GAL_SVETLOGORSK, caption: "Светлогорск — курорт над обрывом" },
+  { src: IMG_GAL_LIGHTHOUSE, caption: "Маяк Зеленоградска" },
+  { src: IMG_GAL_AMBER, caption: "Балтийский янтарь — золото Балтики" },
 ];
 
 const Index = () => {
