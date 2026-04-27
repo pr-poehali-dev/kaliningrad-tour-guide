@@ -210,6 +210,23 @@ const Index = () => {
   const [premiumOpen, setPremiumOpen] = useState(false);
   const [bookingStep, setBookingStep] = useState(1);
   const [selectedTour, setSelectedTour] = useState<number | null>(null);
+  const [discountCategory, setDiscountCategory] = useState<string>("Без скидки");
+
+  const discountMap: Record<string, number> = {
+    "Без скидки": 0,
+    "Студент (−15%)": 15,
+    "Пенсионер (−30%)": 30,
+    "Ребёнок до 3 лет (−10%)": 10,
+  };
+
+  const getDiscountedPrice = () => {
+    const tour = tours.find((t) => t.id === selectedTour);
+    if (!tour) return null;
+    const base = parseInt(tour.price.replace(/\D/g, ""));
+    const pct = discountMap[discountCategory] || 0;
+    const final = Math.round(base * (1 - pct / 100));
+    return { base, pct, final };
+  };
 
   const sectionId: Record<string, string> = {
     Главная: "hero",
@@ -679,7 +696,7 @@ const Index = () => {
             {bookingStep === 2 && (
               <div>
                 <h3 className="font-cormorant text-2xl font-semibold mb-6">Дата и участники</h3>
-                <div className="grid md:grid-cols-2 gap-4 mb-6">
+                <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
                     <label className="block text-sm font-golos mb-2" style={{ opacity: 0.7 }}>Дата экскурсии</label>
                     <input type="date" className="w-full px-4 py-3 rounded-xl font-golos text-sm border outline-none"
@@ -695,6 +712,51 @@ const Index = () => {
                     </select>
                   </div>
                 </div>
+
+                {/* Категория скидки */}
+                <div className="mb-5">
+                  <label className="block text-sm font-golos mb-2" style={{ opacity: 0.7 }}>Категория участника</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {Object.keys(discountMap).map((cat) => (
+                      <button key={cat} onClick={() => setDiscountCategory(cat)}
+                        className="px-3 py-2.5 rounded-xl text-sm font-golos text-left transition-all"
+                        style={{
+                          backgroundColor: discountCategory === cat ? "var(--beige-dark)" : "var(--cream)",
+                          border: `1px solid ${discountCategory === cat ? "var(--terracotta)" : "var(--sand)"}`,
+                          color: "var(--warm-brown)",
+                        }}>
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Итоговая цена */}
+                {(() => {
+                  const dp = getDiscountedPrice();
+                  if (!dp) return null;
+                  return (
+                    <div className="rounded-xl p-4 mb-5 flex items-center justify-between"
+                      style={{ backgroundColor: "var(--beige-dark)", border: "1px solid var(--sand)" }}>
+                      <div className="text-sm font-golos" style={{ opacity: 0.7 }}>
+                        {dp.pct > 0 ? (
+                          <span>Цена со скидкой <span style={{ color: "var(--terracotta)" }}>−{dp.pct}%</span></span>
+                        ) : "Итого к оплате"}
+                      </div>
+                      <div className="flex items-center gap-3">
+                        {dp.pct > 0 && (
+                          <span className="text-sm font-golos line-through" style={{ opacity: 0.45 }}>
+                            {dp.base.toLocaleString("ru-RU")} ₽
+                          </span>
+                        )}
+                        <span className="font-cormorant text-2xl font-semibold" style={{ color: "var(--terracotta)" }}>
+                          {dp.final.toLocaleString("ru-RU")} ₽
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })()}
+
                 <div className="flex gap-3">
                   <button className="flex-1 py-3 rounded-xl font-golos font-medium border"
                     style={{ borderColor: "var(--sand)", color: "var(--warm-brown)" }}
